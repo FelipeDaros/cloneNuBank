@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, FlatList, TouchableOpacity, ScrollView } from 'react-native';
 
 const DATA = [
   {
@@ -27,7 +27,9 @@ const DATA = [
 export default function App() {
   const renderItem = ({ item }) => (
     <View style={styles.listaOpcao}>
-      <TouchableOpacity><Text style={styles.textoOpcao}>{item.title}</Text></TouchableOpacity>
+      <TouchableOpacity>
+        <Text style={styles.textoOpcao}>{item.title}</Text>
+      </TouchableOpacity>
     </View>
     );
 
@@ -36,7 +38,7 @@ export default function App() {
       <View style={styles.areaSuperior}>
         <View style={styles.barraSuperior}>
           <View style={styles.circuloPerfil}>
-            <Text>ICONE</Text>
+            <Text>O</Text>
           </View>
           <View style={styles.containerIconesSuperior}>
             <Text style={styles.iconesSuperior}>ICONE</Text>
@@ -65,6 +67,17 @@ export default function App() {
       <TouchableOpacity style={styles.containerCartao}>
         <Text style={styles.cartaoTexto}>ICONE Meus cartões</Text>
       </TouchableOpacity>
+      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
+        <TouchableOpacity style={styles.cardsNoticias}>
+          <Text style={styles.cardTexto}>Invista a partir de R$1m Conheça os fundos Nu Seleção.</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.cardsNoticias}>
+          <Text style={styles.cardTexto}>Invista a partir de R$1m Conheça os fundos Nu Seleção.</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.cardsNoticias}>
+          <Text style={styles.cardTexto}>Invista a partir de R$1m Conheça os fundos Nu Seleção.</Text>
+        </TouchableOpacity>
+      </ScrollView>
       </View>
     </SafeAreaView>
   );
@@ -91,10 +104,17 @@ const styles = StyleSheet.create({
   },
   circuloPerfil:{
     marginLeft: '3%',
-    marginTop: '3%'
+    marginTop: '5%',
+    backgroundColor: '#fff',
+    borderRadius: 100,
+    height: 45,
+    width: 45,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   containerIconesSuperior: {
     flexDirection: 'row',
+    marginTop: '5%'
   },
   iconesSuperior: {
     marginRight: 8,
@@ -104,7 +124,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
-    top: '50%',
+    top: '30%',
     marginLeft: '5%'
   },
   containerConta: {
@@ -146,5 +166,20 @@ const styles = StyleSheet.create({
   cartaoTexto: {
     paddingLeft: 10,
     fontSize: 15
+  },
+  cardsNoticias: {
+    width: 200,
+    height: 60,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#ebebeb',
+    marginTop: 25,
+    borderRadius: 10,
+    margin: 10
+  },
+  cardTexto: {
+    textAlign: 'left',
+    fontSize: 12,
+    margin: 5
   }
 });
